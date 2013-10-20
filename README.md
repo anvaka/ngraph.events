@@ -14,7 +14,7 @@ var yourObject = {}; // any javascript object
 
 eventify(yourObject);
 
-// now your object can listen events from your object
+// now any object can listen to events from your object
 yourObject.on('beep', function(name) { console.log("Hello " + name); });
 
 // and you can fire events from your object:
@@ -39,7 +39,7 @@ var onBop = function (x, y) { console.log(x + y); };
 yourObject.on('bop', onBop);
 yourObject.fire('bop', 40, 2); // prints 42;
 
-// Remove specific listeners to 'bop'
+// Remove given event handler for 'bop' event
 yourObject.off('bop', onBop);
 
 // Remove all event listeners from your object:
