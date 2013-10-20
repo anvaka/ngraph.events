@@ -4,7 +4,6 @@ ngraph.events
 Small and powerful eventing in node and browser
 
 [![build status](https://secure.travis-ci.org/anvaka/ngraph.events.png)](http://travis-ci.org/anvaka/ngraph.events)
-
 Example
 =======
 
@@ -53,6 +52,21 @@ With [npm](http://npmjs.org) do:
 
 ```
 npm install ngraph.events
+```
+
+browser
+=======
+Get [browserify](http://browserify.org/) if you don't have it yet (first line):
+
+```
+npm install -g browserify
+npm install ngraph.events
+browserify index.js -s eventify -o ngraph.events.js
+```
+
+Now you are ready to use ```eventify()``` within browser:
+``` html
+<script src="ngraph.events.js"></script>
 ```
 
 License
