@@ -61,7 +61,10 @@ function createEventsStorage(subject) {
       }
 
       var callbacks = registeredEvents[eventName];
-      var fireArguments = Array.prototype.splice.call(arguments, 1);
+      var fireArguments;
+      if (arguments.length > 1) {
+        fireArguments = Array.prototype.splice.call(arguments, 1);
+      }
       for(var i = 0; i < callbacks.length; ++i) {
         var callbackInfo = callbacks[i];
         callbackInfo.callback.apply(callbackInfo.ctx, fireArguments);
