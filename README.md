@@ -4,7 +4,6 @@ ngraph.events
 Small and powerful eventing in node and browser
 
 [![build status](https://secure.travis-ci.org/anvaka/ngraph.events.png)](http://travis-ci.org/anvaka/ngraph.events)
-
 Example
 =======
 
@@ -15,10 +14,10 @@ var yourObject = {}; // any javascript object
 eventify(yourObject);
 
 // now any object can listen to events from your object
-yourObject.on('beep', function(name) { console.log("Hello " + name); });
+yourObject.on('beep', function(name) { console.log('Hello ' + name); });
 
 // and you can fire events from your object:
-yourObject.fire('beep', "World!"); // prints "Hello World!"
+yourObject.fire('beep', 'World!'); // prints 'Hello World!'
 
 // stop listen to events:
 yourObject.off('beep');
@@ -45,6 +44,10 @@ yourObject.off('bop', onBop);
 // Remove all event listeners from your object:
 yourObject.off();
 ```
+
+Why?
+===
+This module is a part of larger experiment which I'm currently working on. ```EventEmitter``` seemed to be pretty heavyweighted for my needs, so I rolled out this tiny library :).
 
 install
 =======
