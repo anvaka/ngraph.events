@@ -14,17 +14,18 @@ function createEventsStorage(subject) {
   //
   // A callback record consists of callback function and its optional context:
   // { 'eventName' => [{callback: function, ctx: object}] }
-  var registeredEvents = {};
+  var registeredEvents = Object.create(null);
 
   return {
     on: function (eventName, callback, ctx) {
       if (typeof callback !== 'function') {
         throw new Error('callback is expected to be a function');
       }
-      if (!registeredEvents.hasOwnProperty(eventName)) {
-        registeredEvents[eventName] = [];
+      var handlers = registeredEvents[eventName];
+      if (!handlers) {
+        handlers = registeredEvents[eventName] = [];
       }
-      registeredEvents[eventName].push({callback: callback, ctx: ctx});
+      handlers.push({callback: callback, ctx: ctx});
 
       return subject;
     },
@@ -33,11 +34,11 @@ function createEventsStorage(subject) {
       var wantToRemoveAll = (typeof eventName === 'undefined');
       if (wantToRemoveAll) {
         // Killing old events storage should be enough in this case:
-        registeredEvents = {};
+        registeredEvents = Object.create(null);
         return subject;
       }
 
-      if (registeredEvents.hasOwnProperty(eventName)) {
+      if (registeredEvents[eventName]) {
         var deleteAllCallbacksForEvent = (typeof callback !== 'function');
         if (deleteAllCallbacksForEvent) {
           delete registeredEvents[eventName];
@@ -55,12 +56,11 @@ function createEventsStorage(subject) {
     },
 
     fire: function (eventName) {
-      var noEventsToFire = !registeredEvents.hasOwnProperty(eventName);
-      if (noEventsToFire) {
-        return subject; 
+      var callbacks = registeredEvents[eventName];
+      if (!callbacks) {
+        return subject;
       }
 
-      var callbacks = registeredEvents[eventName];
       var fireArguments;
       if (arguments.length > 1) {
         fireArguments = Array.prototype.splice.call(arguments, 1);
