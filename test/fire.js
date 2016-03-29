@@ -41,6 +41,7 @@ test('Chaining can be used on fire and "on"', function(t) {
 
    t.end();
 });
+
 test('fire passes all arguments', function(t) {
    t.plan(2);
 
@@ -128,7 +129,6 @@ test('"off" removes all for given event name', function(t) {
 test('"off" removes all events', function(t) {
    t.plan(0);
    var subject = eventify({});
-   var context = {};
    var onFoo = function (){
      t.ok(false, "off() did not properly removed the handler");
    };
@@ -139,6 +139,38 @@ test('"off" removes all events', function(t) {
 
    subject.fire('foo');
    subject.fire('bar');
+});
+
+test('"off" does not harm when no such event', function(t) {
+   t.plan(1);
+   var subject = eventify({});
+   var onFoo = function () {
+     t.ok(true, "off() called just one");
+   };
+
+   subject.on('foo', onFoo);
+   subject.off('bar', onFoo);
+
+   subject.fire('foo');
+   subject.fire('bar');
+});
+
+test('"off" can remove by function', function(t) {
+   t.plan(1);
+   var subject = eventify({});
+   var onFooYes = function () {
+     t.ok(true, "off() called just one");
+   };
+
+   var onFooNo = function () {
+     t.ok(false, "off() should not be called");
+   };
+
+   subject.on('foo', onFooYes);
+   subject.on('foo', onFooNo);
+   subject.off('foo', onFooNo);
+
+   subject.fire('foo');
 });
 
 test('eventify can chain', function(t) {
