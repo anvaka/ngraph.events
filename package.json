@@ -20,6 +20,6 @@
     "url": "https://github.com/anvaka/ngraph.events/issues"
   },
   "devDependencies": {
-    "tap": "^14.2.0"
+    "tap": "^14.10.5"
   }
 }
