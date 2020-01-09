@@ -1,4 +1,4 @@
-module.exports = function(subject) {
+module.exports = function eventify(subject) {
   validateSubject(subject);
 
   var eventsStorage = createEventsStorage(subject);
