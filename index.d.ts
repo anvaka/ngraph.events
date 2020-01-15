@@ -10,7 +10,7 @@ declare module "ngraph.events" {
 
   // defined additional event properties that will be added by eventify
   export interface EventedType {
-    on: (eventName: EventKey, callback: EventCallback, ctx?) => this
+    on: (eventName: EventKey, callback: EventCallback, ctx?: any) => this
     off: (eventName?: EventKey, callback?: EventCallback) => this
     fire: (eventName: EventKey, ...args: any[]) => this
   }
