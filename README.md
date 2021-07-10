@@ -3,7 +3,8 @@ ngraph.events
 
 Small and powerful eventing in node and browser
 
-[![build status](https://secure.travis-ci.org/anvaka/ngraph.events.png)](http://travis-ci.org/anvaka/ngraph.events)
+ [![build status](https://github.com/anvaka/ngraph.events/actions/workflows/tests.yaml/badge.svg)](https://github.com/anvaka/ngraph.events/actions/workflows/tests.yaml)
+
 Example
 =======
 
