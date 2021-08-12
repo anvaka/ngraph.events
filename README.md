@@ -48,7 +48,8 @@ yourObject.off();
 
 Why?
 ===
-This module is a part of larger experiment which I'm currently working on. ```EventEmitter``` seemed to be pretty heavyweighted for my needs, so I rolled out this tiny library :).
+I wanted a light-weight eventing library, so I built this.
+
 
 Install
 =======
