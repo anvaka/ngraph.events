@@ -3,8 +3,8 @@
   "version": "1.3.0",
   "description": "Basic events support for ngraph.js",
   "type": "module",
-  "main": "dist/ngraph.events.umd.js",
-  "module": "dist/ngraph.events.es.js",
+  "main": "dist/ngraph.events.cjs",
+  "module": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "build": "vite build",
@@ -26,10 +26,11 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/ngraph.events.es.js",
-      "require": "./dist/ngraph.events.umd.js",
-      "default": "./dist/ngraph.events.umd.js"
-    }
+      "types": "./index.d.ts",
+      "import": "./index.js",
+      "require": "./dist/ngraph.events.cjs"
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist",

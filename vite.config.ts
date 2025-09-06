@@ -7,8 +7,12 @@ export default defineConfig({
     lib: {
       entry: 'index.js',
       name: 'ngraphEvents',
-      formats: ['es', 'umd'],
-      fileName: (format) => format === 'umd' ? 'ngraph.events.umd.js' : 'ngraph.events.es.js',
+      formats: ['es', 'cjs', 'umd'],
+      fileName: (format) => {
+        if (format === 'umd') return 'ngraph.events.umd.js';
+        if (format === 'cjs') return 'ngraph.events.cjs';
+        return 'ngraph.events.es.js';
+      },
     },
   },
   test: {
