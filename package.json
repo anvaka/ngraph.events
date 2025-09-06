@@ -1,8 +1,9 @@
 {
   "name": "ngraph.events",
   "version": "1.2.2",
-  "description": "Basic events supoort for ngraph.js ",
+  "description": "Basic events support for ngraph.js",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "tap test/*.js"
   },

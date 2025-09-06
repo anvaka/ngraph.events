@@ -1,10 +1,10 @@
 // Type definitions for ngraph.events v1.0.0
-// Project: https://github.com/anvaka/ngraph.graph
+// Project: https://github.com/anvaka/ngraph.events
 // Definitions by: Tobias Kopelke <https://github.com/lordnox>
 
 declare module "ngraph.events" {
   // define keys that are allowed as event names
-  export type EventKey = string | number | Symbol
+  export type EventKey = string | number | symbol
   // define basic function that is allowed for event listeners
   export type EventCallback = (...args: any[]) => void
 
