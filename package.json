@@ -1,6 +1,6 @@
 {
   "name": "ngraph.events",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "Basic events support for ngraph.js",
   "type": "module",
   "main": "dist/ngraph.events.umd.js",
@@ -27,7 +27,7 @@
   "exports": {
     ".": {
       "import": "./dist/ngraph.events.es.js",
-  "require": "./dist/ngraph.events.umd.js",
+      "require": "./dist/ngraph.events.umd.js",
       "default": "./dist/ngraph.events.umd.js"
     }
   },
