@@ -1,6 +1,6 @@
 {
   "name": "ngraph.events",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "Basic events support for ngraph.js",
   "type": "module",
   "main": "dist/ngraph.events.cjs",
