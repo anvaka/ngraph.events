@@ -32,13 +32,6 @@
     },
     "./package.json": "./package.json"
   },
-  "files": [
-    "dist",
-    "index.js",
-    "index.d.ts",
-    "README.md",
-    "LICENSE"
-  ],
   "devDependencies": {
     "vite": "^7.1.4",
     "vitest": "^3.2.4"
